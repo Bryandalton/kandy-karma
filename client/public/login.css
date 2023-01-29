@@ -1,3 +1,7 @@
+body{
+    background-image: url("./images/glen-carrie-xBTnaTgleQE-unsplash.jpg");
+}
+
 .login-container{
     margin-top: 5%;
     margin-bottom: 5%;
@@ -5,6 +9,7 @@
 .login-form-1{
     padding: 5%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    background-color: aliceblue;
 }
 .login-form-1 h3{
     text-align: center;
