@@ -17,7 +17,41 @@ body {
 }
 
 .candy-cards {
-  margin: 5px;
+  margin: 30px;
   border-radius: 5px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+  color: white;
+}
+
+.candy-card-title {
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+.candy-card-body {
+  background-color: black;
+  text-align: center;
+  border-radius: 2px;
+
+  /* border: pink;
+  border-width: 10px; */
+}
+.candy-list-group {
+  color: black;
+  border-radius: 5px;
+}
+
+.candy-btn {
+  margin: 10px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #0062cc;
+}
+
+.candy-btn:hover {
+  margin: 10px;
+  font-weight: 600;
+  color: #0062cc;
+  background-color: #fff;
 }
