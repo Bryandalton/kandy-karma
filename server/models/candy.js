@@ -1,7 +1,5 @@
 const { Schema, model } = require("mongoose");
-const sourSchema = require("./Sour");
-const chocolateSchema = require("./Chocolate");
-const fruitySchema = require("./Fruity");
+const surveySchema = require("./Survey");
 
 const candySchema = new Schema(
   {
@@ -10,9 +8,7 @@ const candySchema = new Schema(
       required: true,
       max_length: 50,
     },
-    sour: [sourSchema],
-    chocolate: [chocolateSchema],
-    fruity: [fruitySchema],
+    survey: [surveySchema],
   },
   {
     toJSON: {
