@@ -19,7 +19,12 @@ const userSchema = new Schema(
       required: true,
     },
     // set reviewedCandies to be an array of data that adheres to the
-    reviewedCandies: [candySchema],
+    reviewedCandies: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "candy",
+      },
+    ],
     // Admin or Super User vs Regular User where there is an admin property with a default value of false
     admin: {
       type: Boolean,
