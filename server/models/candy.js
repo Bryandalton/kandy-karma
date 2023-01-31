@@ -3,7 +3,7 @@ const surveySchema = require("./Survey");
 
 const candySchema = new Schema(
   {
-    name: {
+    candy_name: {
       type: String,
       required: true,
       max_length: 50,
