@@ -1,12 +1,20 @@
-const { Schema, model } = require("mongoose");
+const { Schema, Types } = require("mongoose");
 
-// Schema to create Sour Candy model
+// Schema to create  Candy model
 const surveySchema = new Schema(
   {
-    name: {
+    surveyId: {
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
+    },
+    candy_name: {
       type: String,
       required: true,
       max_length: 50,
+    },
+    username: {
+      type: String,
+      required: true,
     },
     type: {
       type: String,
@@ -41,6 +49,4 @@ const surveySchema = new Schema(
   }
 );
 
-const Survey = model("survey", surveySchema);
-
-module.exports = Survey;
+module.exports = surveySchema;
