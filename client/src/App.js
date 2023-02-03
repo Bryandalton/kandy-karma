@@ -3,7 +3,7 @@ import React from "react";
 import Login from "./components/pages/login";
 import About from "./components/pages/about";
 import Survey from "./components/pages/survey";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 
 function App() {
@@ -14,16 +14,16 @@ function App() {
           <div id="menu">
             <ul id="menu-items">
               <li className="menu-item">
-                <link to="/">Home</link>
+                <Link to="/">Home</Link>
               </li>
               <li className="menu-item">
-                <link to="/survey">Survey</link>
+                <Link to="/survey">Survey</Link>
               </li>
               <li className="menu-item">
-                <link to="/about">About Us</link>
+                <Link to="/about">About Us</Link>
               </li>
               <li className="menu-item">
-                <link to="/login">Login</link>
+                <Link to="/login">Login</Link>
               </li>
             </ul>
           </div>
