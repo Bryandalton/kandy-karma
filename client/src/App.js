@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Home from "./components/home";
+import React from "react";
+// import Home from "./components/home";
 import Login from "./components/pages/login";
 import About from "./components/pages/about";
 import Survey from "./components/pages/survey";
@@ -7,8 +7,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("Home");
-
   return (
     <>
       <Router>
@@ -16,16 +14,16 @@ function App() {
           <div id="menu">
             <ul id="menu-items">
               <li className="menu-item">
-                <a href="/">Home</a>
+                <link to="/">Home</link>
               </li>
               <li className="menu-item">
-                <a href="/survey">Survey</a>
+                <link to="/survey">Survey</link>
               </li>
               <li className="menu-item">
-                <a href="/about">About Us</a>
+                <link to="/about">About Us</link>
               </li>
               <li className="menu-item">
-                <a href="/login">Login</a>
+                <link to="/login">Login</link>
               </li>
             </ul>
           </div>
