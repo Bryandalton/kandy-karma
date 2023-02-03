@@ -137,7 +137,7 @@ body {
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  border: #282c34 solid;
+  /* border: #282c34 solid; */
   float: right;
   height: 90vh;
   width: 70vw;
