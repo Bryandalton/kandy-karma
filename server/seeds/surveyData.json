@@ -1,6 +1,6 @@
 [
   {
-    "name": "Skittles",
+    "candy_name": "Skittles",
     "type": "Fruity",
     "texture": "2",
     "look": "5",
@@ -9,7 +9,7 @@
     "overall": "4"
   },
   {
-    "name": "Trolli Gummi Worms",
+    "candy_name": "Trolli Gummi Worms",
     "type": "Sour",
     "texture": "5",
     "look": "5",
@@ -18,7 +18,7 @@
     "overall": "5"
   },
   {
-    "name": "Starburst Jellybeans",
+    "candy_name": "Starburst Jellybeans",
     "type": "Fruity",
     "texture": "5",
     "look": "4",
@@ -27,7 +27,7 @@
     "overall": "4"
   },
   {
-    "name": "Dove Chocolate Hearts",
+    "candy_name": "Dove Chocolate Hearts",
     "type": "Chocolate",
     "texture": "2",
     "look": "4",
@@ -36,7 +36,7 @@
     "overall": "3"
   },
   {
-    "name": "Cherry Cordials",
+    "candy_name": "Cherry Cordials",
     "type": "Chocolate",
     "texture": "2",
     "look": "4",

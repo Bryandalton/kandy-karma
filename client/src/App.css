@@ -120,23 +120,31 @@ body {
   background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
 }
 
-/* @media (min-width: 768px) {
+@media (min-width: 768px) {
   .gradient-form {
     height: 100vh !important;
   }
-} */
-/* @media (min-width: 769px) {
+} 
+ @media (min-width: 769px) {
   .gradient-custom-2 {
     border-top-right-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
   }
-} */
+}
+@media (max-width: 1400px) {
+  .login-container{
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+  }
+}
 
 .display-container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
+  /* border is a visual aid for arranging elements on the page */
   /* border: #282c34 solid; */
   float: right;
   height: 90vh;
@@ -144,10 +152,14 @@ body {
   margin: 5vh 5vw 0 0;
 }
 
+/* .about {
+  padding-top: ;
+} */
+
 .login-container {
   display: flex;
   justify-content: space-around;
-}
+}r
 
 .login-container input {
   display: flex;
@@ -158,6 +170,7 @@ body {
   padding: 5%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
   background-color: aliceblue;
+  border-radius: 15px 0 0 15px;
 }
 .login-form-1 h3 {
   text-align: center;
@@ -166,6 +179,7 @@ body {
 .login-form-2 {
   padding: 5%;
   background: #0062cc;
+  border-radius: 0 15px 15px 0;
   background-image: linear-gradient(
     to right,
     #ee7724,
@@ -188,6 +202,7 @@ body {
   justify-content: center;
   border: none;
   cursor: pointer;
+  border-radius: 15px;
 }
 .login-form-1 .btnSubmit {
   font-weight: 600;
@@ -218,3 +233,4 @@ body {
     transform: rotate(360deg);
   }
 }
+
