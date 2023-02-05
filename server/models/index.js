@@ -1,10 +1,5 @@
-const router = require("express").Router();
+const Candy = require('./candy')
+const Survey = require('./Survey')
+const User = require('./User')
 
-// link routes here when built
-// const oursecRoutes = require('./courseRoutes');
-// const studentRoutes = require('./studentRoutes');
-
-// router.use('/courses', courseRoutes);
-// router.use('/students', studentRoutes);
-
-module.exports = router;
+module.exports= { Candy, Survey, User }
