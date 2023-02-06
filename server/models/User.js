@@ -5,7 +5,7 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      required: true,
+      required: false,
       unique: true,
     },
     email: {
@@ -26,11 +26,11 @@ const userSchema = new Schema(
       },
     ],
     // Admin or Super User vs Regular User where there is an admin property with a default value of false
-    admin: {
-      type: Boolean,
-      required: true,
-      default: false,
-    },
+    // admin: {
+    //   type: Boolean,
+    //   required: true,
+    //   default: false,
+    // },
   },
   // set this to use virtual below
   {
