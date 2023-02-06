@@ -1,9 +1,12 @@
-const { User, Candy } = require("../models");
+const { User, Candy, Survey } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 const resolvers = {
   // setup me Query to parallell MERN books assignment
   Query: {
+    users: async () => {
+      return User.find()
+    },
     me: async (parent, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id });
@@ -12,9 +15,18 @@ const resolvers = {
       throw new AuthenticationError("not logged in");
     },
     candies: async (parent, args, context) => {
-      const candyData = await Candy.findAll();
+      const candyData = await Candy.find();
       return candyData;
     },
+    candy: async (parent, {candyId}) =>{
+      return Candy.findOne({_id: candyId})
+    },
+    surveys: async (parent, {email}) => {
+      return  Survey.find()
+    },
+    survey: async (parent, { surveyId }) => {
+      return Survey.findOne({_id: surveyId})
+    }
   },
   //   mutations will get the ones we put in the type mutations, this will model the user ones form in class activities ; then we will do the update and
   Mutation: {
@@ -25,17 +37,33 @@ const resolvers = {
   //  deleteCandy(): User X
   //  updateUser(): User X
   //  deleteUser(): User X
-    addUser: async (parent, args) => {
-      const newUser = await User.create(args);
-      return newUser;
+    addUser: async (parent, {email, password}) => {
+      const newUser = await User.create({email, password});
+      const token = signToken(newUser);
+
+      return {token, newUser};
     },
+
+    login: async (parent, {email, password}) => {
+      const user = await User.findOne({email});
+
+      if(!user) {throw new AuthenticationError('No user with this email found')}
+
+      const correctPw = await user.isCorrectPassword(password);
+       if (!correctPw) {throw new AuthenticationError('Incorrect Credentials')}
+
+      const token = signToken(user);
+
+      return{token, user};
+    },
+
     updateUser: async (parent, args) => {
       const upUser = await User.findOneAndUpdate(args);
       return upUser;
     },
     deleteUser: async (parent, args) => {
       const remUser = await User.remove(
-        { _id }
+        { _id: userId } //remove user were id === userId?
       );
       return remUser;
     },
@@ -52,6 +80,11 @@ const resolvers = {
       );
       return remCandy;
     },
+    addSurvey: async (parent, {surveyData}) => {
+      const survey = await Survey.create({surveyData})
+      //I'm sure this is missing something ask Jamie
+      return survey
+    }
   },
 };
 

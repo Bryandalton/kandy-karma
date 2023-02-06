@@ -49,4 +49,5 @@ const surveySchema = new Schema(
   }
 );
 
+//does this need to be exported as a model?
 module.exports = surveySchema;
