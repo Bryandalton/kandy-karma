@@ -1,12 +1,8 @@
-const { Schema, Types } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 // Schema to create  Candy model
 const surveySchema = new Schema(
   {
-    surveyId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
-    },
     candy_name: {
       type: String,
       required: true,
@@ -50,4 +46,6 @@ const surveySchema = new Schema(
 );
 
 //does this need to be exported as a model?
-module.exports = surveySchema;
+const Survey = model("survey", surveySchema)
+
+module.exports = Survey;

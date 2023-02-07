@@ -3,15 +3,14 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type User {
     _id: ID
-    username: String
-    email: String
+    username: String!
+    email: String!
     reviewedCandies: [Candy]
-    admin: Boolean
   }
 
   type Candy {
     candy_name: String!
-    survey: [Survey]
+    _id: ID
   }
 
   type Survey {
@@ -25,6 +24,7 @@ const typeDefs = gql`
     taste: Int
     overall: Int
   }
+
   type Auth {
     token: ID
     user: User
@@ -40,6 +40,7 @@ const typeDefs = gql`
     taste: Int
     overall: Int
   }
+
   type Query {
     users: [User]
     me: User
@@ -48,25 +49,32 @@ const typeDefs = gql`
     surveys: [Survey]
     survey(surveyId: Int!): Survey
   }
+
   type Mutation {
-   login( email: String!, password: String! ): Auth
-   addUser( email: String!, password: String! ): Auth
-   addSurvey( surveyId: ID
-    candy_name: String
-    username: String
-    type: String
-    texture: Int
-    look: Int
-    smell: Int
-    taste: Int
-    overall: Int ): User
-   addNewCandy(candyName: String!): User 
-   deleteCandy( _id: Int! ): User
-   updateUser( email: String! ): User
-   deleteUser( userId: Int! ): User
+    login(username: String!, password: String!): Auth
+
+    addUser(email: String!, password: String!, username: String!): Auth
+
+    addSurvey(
+      surveyId: ID
+      candy_name: String
+      username: String
+      type: String
+      texture: Int
+      look: Int
+      smell: Int
+      taste: Int
+      overall: Int
+    ): Survey
+
+    addNewCandy(candy_name: String!): Candy
+
+    deleteCandy(_id: Int!): Candy
+
+    updateUser(email: String!): User
+
+    deleteUser(userId: Int!): User
   }
 `;
-
-//there may be a mismatch between typedef mutation types and resolvers
 
 module.exports = typeDefs;

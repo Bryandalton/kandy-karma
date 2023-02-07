@@ -1,5 +1,6 @@
 [
   {
+    "username": "Brian Kernighan",
     "candy_name": "Skittles",
     "type": "Fruity",
     "texture": "2",
@@ -9,6 +10,7 @@
     "overall": "4"
   },
   {
+    "username": "Brian Kernighan",
     "candy_name": "Trolli Gummi Worms",
     "type": "Sour",
     "texture": "5",
@@ -18,6 +20,7 @@
     "overall": "5"
   },
   {
+    "username": "Brian Kernighan",
     "candy_name": "Starburst Jellybeans",
     "type": "Fruity",
     "texture": "5",
@@ -27,6 +30,7 @@
     "overall": "4"
   },
   {
+    "username": "Kent Beck",
     "candy_name": "Dove Chocolate Hearts",
     "type": "Chocolate",
     "texture": "2",
@@ -36,6 +40,7 @@
     "overall": "3"
   },
   {
+    "username": "Kent Beck",
     "candy_name": "Cherry Cordials",
     "type": "Chocolate",
     "texture": "2",

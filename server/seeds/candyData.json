@@ -1,17 +1,17 @@
 [
   {
-    "name": "Skittles"
+    "candy_name": "Skittles"
   },
   {
-    "name": "Trolli Gummi Worms"
+    "candy_name": "Trolli Gummi Worms"
   },
   {
-    "name": "Starburst Jellybeans"
+    "candy_name": "Starburst Jellybeans"
   },
   {
-    "name": "Dove Chocolate Hearts"
+    "candy_name": "Dove Chocolate Hearts"
   },
   {
-    "name": "Cherry Cordials"
+    "candy_name": "Cherry Cordials"
   }
 ]
