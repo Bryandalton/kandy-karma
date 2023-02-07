@@ -28,7 +28,6 @@
   color: #61dafb;
 }
 
-
 body {
   background-color: rgb(20, 20, 20);
   margin: 0px;
@@ -102,7 +101,6 @@ body {
   text-shadow: black 1px 2px 5px;
 }
 
-
 .gradient-custom-2 {
   /* fallback for old browsers */
   background: #fccb90;
@@ -124,15 +122,20 @@ body {
   .gradient-form {
     height: 100vh !important;
   }
-} 
- @media (min-width: 769px) {
+}
+@media (min-width: 769px) {
   .gradient-custom-2 {
     border-top-right-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
   }
 }
 @media (max-width: 1400px) {
-  .login-container{
+  .login-container {
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+  }
+  .card {
     flex-direction: column;
     justify-content: end;
     align-items: flex-end;
@@ -159,9 +162,8 @@ body {
 .login-container {
   display: flex;
   justify-content: space-around;
-}r
-
-.login-container input {
+}
+r .login-container input {
   display: flex;
   border-radius: 15px;
 }
@@ -233,4 +235,3 @@ body {
     transform: rotate(360deg);
   }
 }
-
