@@ -18,8 +18,8 @@ const resolvers = {
       const candyData = await Candy.find();
       return candyData;
     },
-    candy: async (parent, {candyId}) =>{
-      return Candy.findOne({_id: candyId})
+    candy: async (parent, {candyName}) =>{
+      return Candy.findOne(candyName)
     },
     surveys: async (parent, {email}) => {
       return  Survey.find()
@@ -57,24 +57,24 @@ const resolvers = {
       return{token, user};
     },
 
-    updateUser: async (parent, args) => {
-      const upUser = await User.findOneAndUpdate(args);
+    updateUser: async (parent, {email}) => {
+      const upUser = await User.findOneAndUpdate(email);
       return upUser;
     },
-    deleteUser: async (parent, args) => {
+    deleteUser: async (parent, {userId}) => {
       const remUser = await User.remove(
         { _id: userId } //remove user were id === userId?
       );
       return remUser;
     },
-    addNewCandy: async (parent, args) => {
+    addNewCandy: async (parent, {candyName}) => {
       const newCandy = await Candy.create(
         { _id },
         { new: true }
       );
       return newCandy;
     },
-    deleteCandy: async (parent, args) => {
+    deleteCandy: async (parent, {_id}) => {
       const remCandy = await Candy.remove(
         { _id }
       );
