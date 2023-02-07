@@ -10,8 +10,7 @@ const typeDefs = gql`
   }
 
   type Candy {
-    _id: candyId
-    candy_name: String
+    candy_name: String!
     survey: [Survey]
   }
 
@@ -42,17 +41,29 @@ const typeDefs = gql`
     overall: Int
   }
   type Query {
+    users: [User]
     me: User
     candies: [Candy]
+    candy(candyName: String!): Candy
+    surveys: [Survey]
+    survey(surveyId: Int!): Survey
   }
   type Mutation {
-   login(): Auth
-   addUser(): Auth
-   addSurvey(): User
-   addNewCandy(): User 
-   deleteCandy(): User
-   updateUser(): User
-   deleteUser(): User
+   login( email: String!, password: String! ): Auth
+   addUser( email: String!, password: String! ): Auth
+   addSurvey( surveyId: ID
+    candy_name: String
+    username: String
+    type: String
+    texture: Int
+    look: Int
+    smell: Int
+    taste: Int
+    overall: Int ): User
+   addNewCandy(candyName: String!): User 
+   deleteCandy( _id: Int! ): User
+   updateUser( email: String! ): User
+   deleteUser( userId: Int! ): User
   }
 `;
 
