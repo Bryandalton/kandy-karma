@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -26,11 +26,16 @@
 
 .App-link {
   color: #61dafb;
-}
+} */
 
 body {
   background-color: rgb(20, 20, 20);
   margin: 0px;
+}
+
+a {
+  color: black !important;
+  text-decoration: none !important;
 }
 
 #menu {
@@ -38,14 +43,15 @@ body {
   display: flex;
   justify-content: space-between;
   height: 100vh;
-  width: 100vw;
+  /* width: 100vw; */
 }
 
 #menu-items {
   margin-left: 1rem;
   position: relative;
   z-index: 2;
-  text-decoration: none !important;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(245, 241, 241);
 }
 
 #menu-background-pattern {
@@ -90,7 +96,6 @@ body {
 }
 
 .menu-item {
-  color: white;
   cursor: pointer;
   display: block;
   font-family: "Ibarra Real Nova", serif;
@@ -98,7 +103,6 @@ body {
   padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
   text-decoration: none;
   transition: opacity 400ms ease;
-  text-shadow: black 1px 2px 5px;
 }
 
 .gradient-custom-2 {
@@ -129,6 +133,15 @@ body {
     border-bottom-right-radius: 0.3rem;
   }
 }
+
+/* @media (max-width: 1400px) {
+  /* .about{
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+  }
+} */
+
 @media (max-width: 1400px) {
   .login-container {
     flex-direction: column;
@@ -136,9 +149,11 @@ body {
     align-items: flex-end;
   }
   .card {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row !important;
     justify-content: end;
     align-items: flex-end;
+    width: 30vmax;
   }
 }
 
@@ -155,9 +170,10 @@ body {
   margin: 5vh 5vw 0 0;
 }
 
-/* .about {
-  padding-top: ;
-} */
+.about-container {
+  display: flex;
+  flex-direction: row;
+}
 
 .login-container {
   display: flex;

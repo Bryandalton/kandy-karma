@@ -6,6 +6,9 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { ADD_SURVEY } from "../../utils/graphql/mutation";
 import { useMutation } from "@apollo/client";
 
+//look for a way to do conditional login so survey is only accessable when logged in
+//also find out why login isn't workingcd
+
 export default function Survey() {
   const [addSurvey] = useMutation(ADD_SURVEY);
   const [surveyState, setSurveyState] = useState({
@@ -65,6 +68,7 @@ export default function Survey() {
             <form>
               <div className="form-group">
                 <input
+                onChange={handleChange}
                   type="text"
                   className="form-control candyName"
                   placeholder="Enter Candy Name *"
