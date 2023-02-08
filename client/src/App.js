@@ -5,12 +5,18 @@ import About from "./components/pages/about";
 import Survey from "./components/pages/survey";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+
+const client = new ApolloClient({
+  uri: `/graphql`,
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
     <>
+    <ApolloProvider client={client}>
       <Router>
-        <body>
           <div id="menu">
             <ul id="menu-items">
               <li className="menu-item">
@@ -38,8 +44,8 @@ function App() {
               </div>
             </div>
           </div>
-        </body>
       </Router>
+      </ApolloProvider>
     </>
   );
 }

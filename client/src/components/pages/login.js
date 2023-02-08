@@ -1,6 +1,77 @@
-import React from "react";
+import React,{useState} from "react";
+import { useMutation } from '@apollo/client';
+import {useNavigate} from "react-router-dom";
+//import the tagged gql template
+import { LOGIN, ADD_USER } from "../../utils/graphql/mutation";
+import Auth from "../../utils/auth";
 
-export default function loginPage() {
+export default function LoginPage() {
+  const [formState, setFormState] = useState({username: "", password: "", email: ""});
+  const [addUserFormState, setAddUserFormState] = useState({username: "", password: "", email: ""})
+  const [ login, {error}] = useMutation(LOGIN);
+  const [addUser] = useMutation(ADD_USER);
+  const navigate = useNavigate()
+
+  if(error) {
+    console.log((error));
+  }
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  }
+
+  function handleAddUserChange(e) {
+    const {name, value} = e.target;
+    setAddUserFormState({
+      ...addUserFormState,
+      [name]: value,
+    })
+  }
+
+  async function handleAddUser(e) {
+    e.preventDefault();
+    try{
+      const {data} = await addUser({
+        variables: {...addUserFormState},
+      });
+
+      Auth.login(data.login.token)
+    }
+    catch(e){
+      console.error(e)
+    }
+    // clear form values
+    setAddUserFormState({
+      username: '',
+      password: '',
+      email: ''
+    });
+  }
+
+  async function handleLogin(e) {
+    e.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+    navigate('/survey')
+
+    // clear form values
+    setFormState({
+      username: '',
+      password: '',
+    });
+  }
+
   return (
     <div className="container login-container">
       <div className="col-md-6 login-form-1">
@@ -8,22 +79,26 @@ export default function loginPage() {
         <form>
           <div className="form-group">
             <input
+            onChange={handleChange}
               type="text"
               className="form-control"
-              placeholder="Your Username *"
-              value=""
+              placeholder="Your username here"
+              value={formState.username}
+              name="username"
             />
           </div>
           <div className="form-group">
             <input
+            onChange={handleChange}
               type="password"
               className="form-control"
               placeholder="Your Password *"
-              value=""
+              value={formState.password}
+              name="password"
             />
           </div>
           <div className="form-group">
-            <input type="submit" className="btnSubmit" value="Login" />
+            <input onClick={handleLogin} type="submit" className="btnSubmit" value="Login" />
           </div>
         </form>
       </div>
@@ -32,30 +107,36 @@ export default function loginPage() {
         <form>
           <div className="form-group">
             <input
+            onChange={handleAddUserChange}
               type="text"
               className="form-control"
               placeholder="Your Username *"
-              value=""
+              value={addUserFormState.username}
+              name= "username"
             />
           </div>
           <div className="form-group">
             <input
+            onChange={handleAddUserChange}
               type="text"
               className="form-control"
               placeholder="Your Email *"
-              value=""
+              value={addUserFormState.email}
+              name="email"
             />
           </div>
           <div className="form-group">
             <input
+            onChange={handleAddUserChange}
               type="password"
               className="form-control"
               placeholder="Your Password *"
-              value=""
+              value={addUserFormState.password}
+              name="password"
             />
           </div>
           <div className="form-group">
-            <input type="submit" className="btnSubmit" value="Sign Up" />
+            <input onClick={handleAddUser} type="submit" className="btnSubmit" value="Sign Up" />
           </div>
         </form>
       </div>
